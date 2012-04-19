@@ -1,0 +1,31 @@
+<script type="text/javascript">
+
+function isPrime(number)
+{
+  for(var i=2; i<number/2; i++)
+  {
+    //console.log(i);
+    if(number%i === 0)
+      return false;  
+  }
+  return true;
+}
+
+
+function findNthPrime(limit)
+{
+  var i=5;
+  var count=2;
+  while(count<limit)
+  {
+    if(isPrime(i))
+      count++;
+    i++;
+  }
+  console.log(--i);
+}
+
+findNthPrime(10001);
+</script>
+
+

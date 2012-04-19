@@ -1,0 +1,27 @@
+<script type="text/javascript">
+
+function arithmeticSum(first,until,diff)
+{
+	var n,sum=0,last;
+	n = numberofTerms(first,until,diff);
+  last = first + (n-1)*diff;
+	sum = (n/2) * (first + last);
+	return sum;
+}
+
+function numberofTerms(first,until,diff)
+{
+	var n=1,current=first;
+	while((current+diff)<until) //below
+	{
+		n++;
+	  current +=diff;
+	}
+	return n;
+}
+
+var answer = arithmeticSum(3,1000,3)+arithmeticSum(5,1000,5)-arithmeticSum(15,1000,15);
+
+document.write(answer);
+
+</script>

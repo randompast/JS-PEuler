@@ -1,0 +1,26 @@
+<script type="text/javascript">
+
+function findprimefactors(number)
+{
+  var n=1;
+	while( n <= number)
+	{
+		n += 1;
+		if(number%n == 0)
+		{
+			number /= n;
+			document.write(n+", ");
+			n=1;
+		}
+	}
+//	return n;
+}
+
+//var answer = 
+findprimefactors(51298750);
+
+//document.write(answer);
+
+</script>
+
+

@@ -1,0 +1,45 @@
+<script type="text/javascript">
+
+function ispalindromic(number)
+{
+	var reversed="";
+  var number2 = number.toString();
+  for(var i=number2.length; i>=0; i--)
+		reversed += number2.substr(i,1);
+	if (parseInt(reversed) == number)
+		return true;
+	else
+		return false;
+}
+
+function productndigits(n)
+{
+	var top = Math.pow(10,n)-1;
+	var ans = 0;
+	var i,j;
+
+  for(j=top; j>=top/2; j--)
+	{
+  	for(i=top; i>=top/2; i--)
+		{
+			if(ispalindromic(i*j))
+			{
+				if(i*j>=ans)
+				{
+					ans = i*j;
+				}
+			}
+		}
+		i=top;
+	}
+	return ans;
+
+}
+
+var answer = productndigits(4);
+
+document.write(answer);
+
+</script>
+
+

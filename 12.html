@@ -1,0 +1,36 @@
+<script type="text/javascript">
+
+var t = 0;
+
+function triangle(number)
+{
+  var count=0;
+  var cap = number;
+  for(var i=1; i<=cap; i++)
+    {
+      if(number % i == 0)
+        {
+          count +=2;
+          cap = number/i;
+        }
+    }
+  return count;
+}
+
+j=0;
+while(true)
+{
+  j++;
+  t += j;
+  facs = triangle(t);
+
+  console.log(facs+", "+t+", "+j);
+
+  if(facs>500)
+     break;
+}
+
+console.log(t);
+</script>
+
+

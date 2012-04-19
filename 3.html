@@ -1,0 +1,21 @@
+<script type="text/javascript">
+
+function findlargestprimefactor(number)
+{
+  var n=2;
+	while((n/2) < number)
+	{
+		n += 1;
+		if(number%n == 0)
+			number /= n;
+	}
+	return n;
+}
+
+var answer = findlargestprimefactor(600851475143);
+
+document.write(answer);
+
+</script>
+
+

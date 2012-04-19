@@ -1,0 +1,21 @@
+<script type="text/javascript">
+
+function PythagoreanTriplet()
+{
+  for(var i=0; i<333; i++)
+  for(var j=0; j<600; j++)
+  for(var l=0; l<800; l++)
+  {
+    if(i<j && j<l)
+      if(i+j+l === 1000)
+        if(i*i + j*j === l*l)
+          {
+            console.log((i+j+l)+"=1000, i="+i+", j="+j+", l="+l+", "+(i*i +j*j)+"="+(l*l));
+            return i*j*l;
+          }
+          
+  }
+}
+console.log(PythagoreanTriplet());
+</script>
+
