@@ -1,0 +1,36 @@
+<script type="text/javascript">
+
+function bignum()
+{
+  var a = [];
+  for (var i=0; i<=50; i++)
+    a[i] = 0;
+  a[50] = 1;
+  var blocksize = 10000000;
+
+  for (var j=1; j<=100; j++)
+  for(var i=0; i<a.length; i++)
+    {
+      if(a[i] !== 0)
+        {
+          a[i] *= j;
+          if(a[i] >= blocksize)
+            {
+              a[i-1] += Math.floor(a[i] / blocksize);
+              a[i] -= blocksize*Math.floor(a[i] / blocksize);
+            }
+        }
+    }
+
+  for (var i=0; i< a.length; i++)
+    console.log(a[i]);
+
+  //combine and sum digits
+    console.log("answer = "+a.join('').split('').reduce(function (a,b){return parseInt(a)+parseInt(b)}));
+}
+
+//testrange();
+bignum();
+
+</script>
+
