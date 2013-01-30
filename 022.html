@@ -1,0 +1,31 @@
+<script src="022.js"></script>
+<script type="text/javascript">
+
+//"ABC".charCodeAt(0) // returns 65
+namelist = namelist.sort();
+
+var Totalsum = 0;
+
+function sumelement(element){
+  var sum =0;
+  
+  for( var i=0; i<element.length; i++){
+
+    sum += element.charCodeAt(i)-64;
+  }
+  return sum;
+}
+
+function traverseElements(){
+
+  for( var i=0; i<namelist.length; i++){
+
+    Totalsum += (i+1)*sumelement(namelist[i]);
+    console.log(i+", "+Totalsum);
+  }
+}
+
+traverseElements();
+
+</script>
+

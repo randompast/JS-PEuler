@@ -1,0 +1,301 @@
+<script type="text/javascript">
+
+var list     =  [0,1,2,3,4,5,6,7,8,9];
+var origin  =  [9,8,7,6,5,4,3,2,1,0];
+var counter  =  [9,8,7,6,5,4,3,2,1,0];
+
+for(var i=list.length-1; counter[i]>0; i++)
+console.log(list);
+console.log(counter);
+
+//UGH scraping
+/*var Number24 = function(){
+
+  this.list = [0,1,2,3,4,5,6,7,8,9];
+  this.count = 0;
+  this.templist = [];
+  this.leaderswitcher = 0;
+  
+  this.swap = function(a,b) {
+
+      var temp;
+      temp = this.list[a];
+      this.list[a] = this.list[b];
+      this.list[b] = temp;
+  };
+
+  this.reverseafter = function(a) {
+    this.templist = this.list.slice(a);
+    this.templist.reverse();
+    this.list = this.list.slice(0,a);
+    this.list = this.list.concat(this.templist);
+  };  
+  
+  this.newleader = function(a,b) {
+    for(var i=a; i>b; i--)
+      this.swap(i,i-1);
+  };
+  
+  this.iterate = function(a){
+
+    var leader = this.getleader(a);
+
+    if(leader !=10){
+      this.newleader(leader,a);
+      console.log(mynum.list+" a");
+      this.iterate(a+1);
+      this.count +=1;
+    }
+    else
+    {
+      this.reverseafter(a);
+      console.log(mynum.list+" c");
+    }
+  };
+  
+  this.getleader = function(a){
+    var current = this.list[a];
+
+    for(var i=a; i<this.list.length; i++)
+    {
+     // console.log(current+", "+this.list[i]);
+      if( current < this.list[i] )
+        return i;
+    }
+    return 10;
+  };
+  
+};
+
+var mynum = new Number24();
+
+console.log(mynum.list+" o");
+
+//mynum.reverseafter(3);
+//mynum.newleader(5,0);
+mynum.iterate(8);
+*/
+
+//PLAYING WITH CODE
+//*****************
+
+// >.<
+/*var Number24 = function(){
+
+  this.list = [0,1,2,3,4,5,6,7,8,9];
+  this.count =0;
+  this.swap = function(a) {
+    
+    this.list.splice(a,2,this.list[a+1],this.list[a]);
+  };//end swap
+
+  this.switcheroo = function(stop) {
+    
+    var index = this.list.length-1;
+    
+    for(var i=index-1; i>=stop; i--){
+      this.swap(i);
+//      console.log(mylist.list+" ");
+    }
+    
+//      console.log(mylist.list+" ");
+    };//end switcheroo
+
+  this.iterate = function(stop) {
+
+    var index = this.list.length-1;
+    
+      this.swap(index-1);
+      this.count +=1;
+      console.log(mylist.list+" !"+this.count);
+      this.switcheroo(stop);
+      this.count +=1;
+      console.log(mylist.list+" **"+this.count);
+     
+   };//end iterate
+   
+  this.permute = function(stop) {
+
+     var stop = this.list.length-3;
+
+     this.iterate(stop);
+     if(this.count <20)
+       this.permute(stop);
+     
+   };//end permute
+
+
+}
+
+var mylist = new Number24();
+
+mylist.permute(6);
+*/
+
+// >.<
+/*var Number24 = function(){
+
+  this.list = [0,1,2,3,4,5,6,7,8,9];
+  this.count =0;
+
+  this.swap = function(a,b) {
+      var temp;
+
+      temp = this.list[a];
+      this.list[a] = this.list[b];
+      this.list[b] = temp;
+
+//      console.log(this.list+" ");
+  };
+  
+  this.second = function(){
+    this.swap(8,9);
+  };
+  
+  this.third = function(){
+
+    this.second();
+      console.log(this.list+" ");
+
+    this.swap(8,9);
+    this.swap(7,8);
+      console.log(this.list+" ");
+
+    this.second();
+      console.log(this.list+" ");
+
+    this.swap(7,8);
+    this.swap(8,9);
+      console.log(this.list+" ");
+
+    this.second();
+      console.log(this.list+" ");
+
+  };
+  
+    
+  this.fourth = function(){
+    this.third();
+
+    this.swap(8,9);
+    this.swap(7,8);
+    this.swap(6,7);
+    this.swap(8,9);
+      console.log(this.list+" ");
+
+    this.third();
+      
+    this.swap(7,8);
+    this.swap(6,7);
+    this.swap(8,9);
+    this.swap(7,8);
+      console.log(this.list+" ");
+      
+    this.third();
+
+    this.swap(6,7);
+    this.swap(8,9);
+    this.swap(7,8);
+    this.swap(8,9);
+      console.log(this.list+" ");
+      
+    this.third();
+  };
+}
+
+var mynum = new Number24();
+
+console.log(mynum.list+" ");
+
+mynum.fourth();
+
+mynum.swap(8,9);
+mynum.swap(7,8);
+mynum.swap(6,7);
+mynum.swap(5,6);
+
+mynum.swap(8,9);
+mynum.swap(7,8);
+
+mynum.swap(8,9);
+  console.log(mynum.list+" ");
+  
+mynum.fourth();
+
+mynum.swap(7,8);
+mynum.swap(6,7);
+mynum.swap(5,6);
+
+mynum.swap(8,9);
+mynum.swap(7,8);
+mynum.swap(6,7);
+
+mynum.swap(8,9);
+
+  console.log(mynum.list+" ");
+
+mynum.fourth();
+
+mynum.swap(6,7);
+mynum.swap(5,6);
+
+mynum.swap(8,9);
+mynum.swap(7,8);
+mynum.swap(6,7);
+
+mynum.swap(8,9);
+mynum.swap(7,8);
+
+  console.log(mynum.list+" ");
+
+mynum.fourth();
+
+
+mynum.swap(5,6);
+
+mynum.swap(8,9);
+mynum.swap(7,8);
+mynum.swap(6,7);
+
+mynum.swap(8,9);
+mynum.swap(7,8);
+
+  console.log(mynum.list+" ");
+  */
+/*(9!+1)*2+(8!+1)6+(7!+1)*6+(6!+1)*2+(5!+1)*5+(3!+1)*2+(2!+1)*1
+1)  ABCDEFGHIJ
+      7 Later
+        ABCDEFHGIJ
+      24 Later
+        ABCDEFJIHG
+      25 Later
+        ABCDEGFHIJ
+      121 Later
+        ABCDFEGHIJ
+      9! Later
+        AJIHGFEDCB
+      9! + 1 Later
+        BACDEFGHIJ
+          9!
+            BJIHGFEDCA
+              +1
+                CABDEFGHIJ
+                 (8! + 1)*6
+                   CHABDEFGIJ
+                    (7! + 1)*6  
+                      CHIABDEFGJ
+                       6!+1**2
+                        CHIDABEFGJ                   
+                         5!+1**5
+                          CHIDJABEFG                   
+                           3!+1**2
+                            CHIDJAFBEG
+                             2!+1**1
+                              CHIDJAFEBG
+                              999,998
+                              CHIDJAFEGB
+                              CHIDJAFBEG
+                              2783905146         
+*/                                      
+                   
+</script>

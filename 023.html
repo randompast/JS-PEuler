@@ -1,0 +1,94 @@
+<script type="text/javascript">
+
+var Mynumber = function(){
+  this.num;
+  this.sum;
+  this.list = [];
+  this.myanswer = 0;
+  this.divsum = function (){
+      var max = Math.sqrt(this.num);
+      var sum = 1;
+      var i;
+      for(i=2; i<=max; i++)
+      {
+        if((this.num %i) == 0)
+        {
+          sum += i;
+          sum += this.num/i;
+        }
+      }
+      if((i-1)==max)
+        sum -=(i-1);
+      this.sum = sum;
+    };
+    
+    this.checklist = function (){
+      var temp;
+      
+      for(var i=0; i<this.list.length; i++)
+      {
+        temp = this.num - this.list[i];
+        //console.log(temp+"&&"+ this.list[i]);
+        if( this.list.indexOf(temp) >= 0 )
+        {
+          //console.log("MAGIC!");
+          return false;
+        }
+      }
+
+      return true;
+    };
+};
+
+var num1 = new Mynumber();
+var m = 1;
+for(var j=1; j<28124;j+=m)
+{
+  num1.num = j;
+//      console.log("*%1234%*"+num1.list.length);
+  num1.divsum();
+  if( num1.sum > j )//&& (num1.num %2 !=0) )
+  {
+//    console.log(j+" *is abundant* "+(num1.sum) );
+    num1.list.push( (num1.num) );
+  }
+//    else
+//      console.log(j+" *is abundant* "+num1.sum);
+}
+
+/*for(var j=0; j<num1.list.length; j++)
+{
+  console.log(j+"-list: "+num1.list[j]);
+}*/
+
+for(var j=1; j<28124; j++)
+{
+  num1.num = j;
+  if( num1.checklist() )
+  {
+    num1.myanswer += num1.num;
+    console.log(num1.num + "  " + num1.myanswer);
+  }
+}
+
+    console.log("Final Answer = " + num1.myanswer);
+
+/*
+223
+233
+225
+2223
+235
+2233
+2225
+237
+22223
+2227
+2235
+2311
+257
+22233
+2313
+*/
+
+</script>
